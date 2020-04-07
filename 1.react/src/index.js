@@ -6,6 +6,7 @@ import ReactDom from "react-dom";
  * jsx用来描述界面上的元素
  */
 // 1、 class(class是关键字要用className)  id  style
+// 2、 {} 表达式：变量和运算符的组合
 let name = 'react'
 ReactDom.render(<h1 id="title" className="title" style={{color: 'blue'}}>
   hello {name}
