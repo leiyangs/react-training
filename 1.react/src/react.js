@@ -1,8 +1,15 @@
-
+class Component {
+  static isReactComponent = true; // 类和函数经过babel转换后都是类型都是函数，在react-dom中无法判断，加此属性
+  constructor(props) {
+    this.props = props;
+  }
+}
+// 返回react元素
 function ReactElement(type, props) {
   const element = { type, props };
   return element;
 }
+// 处理传入的属性和children
 function createElement(type, config, children) {
   let propName;
   const props = {}
@@ -22,4 +29,4 @@ function createElement(type, config, children) {
   return ReactElement(type,props);
 }
 
-export default { createElement };
+export default { createElement, Component };
