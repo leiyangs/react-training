@@ -8,4 +8,4 @@ let element = React.createElement('h1', {
     fontSize: '25px'
   }
 }, 'hello', React.createElement('span', null, 'react'));
-ReactDom.render('hello', document.getElementById('root'));
+ReactDom.render(element, document.getElementById('root'));
