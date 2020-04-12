@@ -5,7 +5,11 @@ function render(element, parentNode) {
   let type, props;
   type = element.type;
   props = element.props;
-  if(typeof type === 'function') {
+  if(type.isReactComponent) { //类组件
+    let returnedElement = new type(props).render();
+    type = returnedElement.type;
+    props = returnedElement.props;
+  }else if(typeof type === 'function') { // 函数组件
     /**
      * type(props) => <h1 className="welcome" id="welcome">hello yang 10</h1>
      * 然后jsx会被bable转译为下面格式
