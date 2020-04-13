@@ -1,26 +1,23 @@
-import React from "./react";
-import ReactDom from "./react-dom";
+// state状态
+import React from "react";
+import ReactDom from "react-dom";
 
-// let element = React.createElement('h1', {
-//   className: 'react',
-//   id: "react",
-//   style: {
-//     color: 'blue',
-//     fontSize: '25px'
-//   },
-// }, 'hello', React.createElement('span', null, 'react'));
+// class Clock extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {date: new Date().toLocaleTimeString()};
+//   }
+//   componentDidMount() {
+//     this.$timer = setInterval(() => {
+//       this.setState({date: new Date().toLocaleTimeString()});
+//     },1000)
+//   }
+//   render() {
+//     return <div>时间：{this.state.date}</div>
+//   }
+// }
 
-function Welcome(props) {
-  // return <h1 className="welcome" id="welcome">hello {props.name} {props.age}</h1>
-  return React.createElement('h1', {className: "welcome", id: "welcome"}, "hello ", props.name, props.age)
-}
-class Welcome1 extends React.Component {
-  // constructor(props) {
-  //   super(props)// this.props = props;
-  // }
-  render() {
-    return React.createElement('h1', {className: "welcome1", id: "welcome1"}, "hello1 ", this.props.name, this.props.age)
-  }
-}
-let element = React.createElement(Welcome1, {name: 'yang', age: 10});
-ReactDom.render(element, document.getElementById('root'));
+
+
+ReactDom.render(<Clock/>, document.getElementById('root'));
+
