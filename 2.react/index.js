@@ -16,9 +16,9 @@ class Counter {
   render() {
     this.domElement = this.createDomFromDomString(`<button id="count-app">${this.state.number}</button>`);
     this.domElement.addEventListener('click', this.add.bind(this))
-    this.domElement.addEventListener('click', () => {
-      this.add.bind(this)
-    })
+    // this.domElement.addEventListener('click', () => {
+    //   this.add() 
+    // })
     return this.domElement;
   }
 }
