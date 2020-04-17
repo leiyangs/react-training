@@ -1,3 +1,5 @@
+// 父类和子类都是一个实例(new Counter)，所以父类可以调用子类方法，子类也可以调用父类方法
+
 class Component {
   constructor(props) {
     this.props = props;
