@@ -17,15 +17,51 @@ export default class LifeCycle extends Component {
   componentDidMount() {
     console.log('4. 组件已经挂载')
   }
+  shouldComponentUpdate() {
+    console.log('5. 询问组件是否需要更新');
+    return true; // 返回true就是要更新
+  }
+  UNSAFE_componentWillUpdate() { // componentWillUpdate
+    console.log('6. 组件将要更新')
+  }
+  componentDidUpdate() {
+    console.log('7. 组件更新完成')
+  }
   add = () => {
     this.setState({number: this.state.number+1});
   }
   render() {
     console.log('3. render渲染，也就是挂载')
     return (
-      <div>
+      <div style={{border: '6px solid red'}}>
         <p>{this.state.number}</p>
         <button onClick={this.add}>+</button>
+        <SubCounter number={this.state.number}/>
+      </div>
+    )
+  }
+}
+
+class SubCounter extends Component {
+  // 调用此方法的时候会把新的属性对象和醒的状态对象传过来
+  componentWillReceiveProps() {
+    console.log('1. 子组件componentWillReceiveProps');
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    if(nextProps.number%2 === 0) {
+      return true;
+    }else {
+      return false;
+    }
+  }
+  componentDidUpdate() {
+    console.log('3. 子组件组件更新完成')
+  }
+  render() {
+    console.log('2. 子组件render')
+    return (
+      <div style={{border: '5px solid green'}}>
+        <p>{this.props.number}</p>
       </div>
     )
   }
