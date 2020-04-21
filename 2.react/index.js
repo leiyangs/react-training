@@ -79,7 +79,7 @@ class Transaction {
 
 let transaction = new Transaction([
   {
-    initilize() {
+    initilize() { 
       batchingStrategy.isBatchingUpdates = true; // 开启批量更新模式
       console.log('initilize')
     },
