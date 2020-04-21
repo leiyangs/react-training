@@ -67,17 +67,17 @@ class Component {
 }
 
 class Transaction {
-  constructor(wrapper) {
-    this.wrapper = wrapper; // wrapper有initilize close两个方法
+  constructor(wrappers) {
+    this.wrappers = wrappers; // wrapper有initilize close两个方法
   }
   perform(anyMethod) {
-    this.wrapper.initilize();
+    this.wrappers.forEach(wrapper => wrapper.initilize());
     anyMethod.call();
-    this.wrapper.close();
+    this.wrappers.forEach(wrapper => wrapper.close());
   }
 }
 
-let transaction = new Transaction(
+let transaction = new Transaction([
   {
     initilize() {
       batchingStrategy.isBatchingUpdates = true; // 开启批量更新模式
@@ -89,7 +89,7 @@ let transaction = new Transaction(
       console.log('close')
     }
   }
-)
+])
 
 window.$trigger = function (event, method) {
   // event.target.component == <button id="count-app" onclick="trigger(event, 'add')">${this.props.name}${this.state.number}</button>

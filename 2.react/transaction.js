@@ -3,22 +3,22 @@ function setState() {
   console.log('setState')
 }
 class Transaction {
-  constructor(wrapper) {
-    this.wrapper = wrapper; // wrapper有initilize close两个方法
+  constructor(wrappers) {
+    this.wrappers = wrappers; // wrapper有initilize close两个方法
   }
   perform(anyMethod) {
-    this.wrapper.initilize();
+    this.wrappers.forEach(wrapper => wrapper.initilize());
     anyMethod.call();
-    this.wrapper.close();
+    this.wrappers.forEach(wrapper => wrapper.close());
   }
 }
 
-let transaction = new Transaction({
+let transaction = new Transaction([{
   initilize() {
     console.log('initilize')
   },
   close() {
     console.log('close')
   }
-});
+}]);
 transaction.perform(setState);
