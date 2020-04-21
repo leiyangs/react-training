@@ -68,7 +68,7 @@ class Component {
 
 class Transaction {
   constructor(wrappers) {
-    this.wrappers = wrappers; // wrapper有initialize close两个方法
+    this.wrappers = wrappers; // wrapper有initialize close两个方法 
   }
   perform(anyMethod) {
     this.wrappers.forEach(wrapper => wrapper.initialize());
