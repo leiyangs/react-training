@@ -68,10 +68,10 @@ class Component {
 
 class Transaction {
   constructor(wrappers) {
-    this.wrappers = wrappers; // wrapper有initilize close两个方法
+    this.wrappers = wrappers; // wrapper有initialize close两个方法
   }
   perform(anyMethod) {
-    this.wrappers.forEach(wrapper => wrapper.initilize());
+    this.wrappers.forEach(wrapper => wrapper.initialize());
     anyMethod.call();
     this.wrappers.forEach(wrapper => wrapper.close());
   }
@@ -79,9 +79,9 @@ class Transaction {
 
 let transaction = new Transaction([
   {
-    initilize() { 
+    initialize() { 
       batchingStrategy.isBatchingUpdates = true; // 开启批量更新模式
-      console.log('initilize')
+      console.log('initialize')
     },
     close() {
       batchingStrategy.isBatchingUpdates = false;
