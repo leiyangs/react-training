@@ -36,7 +36,7 @@ export default class LifeCycle extends Component {
       <div style={{border: '6px solid red'}}>
         <p>{this.state.number}</p>
         <button onClick={this.add}>+</button>
-        <SubCounter number={this.state.number}/>
+        {this.state.number%2 === 0&&<SubCounter number={this.state.number}/>}
       </div>
     )
   }
@@ -48,7 +48,7 @@ class SubCounter extends Component {
     console.log('1. 子组件componentWillReceiveProps');
   }
   shouldComponentUpdate(nextProps, nextState) {
-    if(nextProps.number%2 === 0) {
+    if(nextProps.number%3 === 0) {
       return true;
     }else {
       return false;
