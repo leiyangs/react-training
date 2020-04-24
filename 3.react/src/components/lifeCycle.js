@@ -14,6 +14,7 @@ export default class LifeCycle extends Component {
   UNSAFE_componentWillMount() { //componentWillMount react17将要删除
     console.log('2. 组件将要挂载')
   }
+  // 一般在componentDidMount进行一步操作
   componentDidMount() {
     console.log('4. 组件已经挂载')
   }
@@ -26,6 +27,9 @@ export default class LifeCycle extends Component {
   }
   componentDidUpdate() {
     console.log('7. 组件更新完成')
+  }
+  componentWillUnmount() {
+    console.log('8. 父组件卸载')
   }
   add = () => {
     this.setState({number: this.state.number+1});
@@ -56,6 +60,9 @@ class SubCounter extends Component {
   }
   componentDidUpdate() {
     console.log('3. 子组件组件更新完成')
+  }
+  componentWillUnmount() {
+    console.log('4. 子组件卸载')
   }
   render() {
     console.log('2. 子组件render')
