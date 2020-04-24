@@ -7,7 +7,7 @@ export default class LifeCycle extends Component {
     name: '计数器'
   }
   constructor(props) {
-    super(props)
+    super(props); // 组件必须加super(props),要不然拿不到this,React直接会报错
     this.state = { number: 0 }; // 初始化默认的状态对象
     console.log('1. 初始化props and state');
   }
