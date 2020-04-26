@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// static getDerivedStateFromProps(props, state) 这个生命周期的功能实际上就是将传入的props映射到state上面
 export default class Counter extends Component {
   constructor(props) {
     super(props);
