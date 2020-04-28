@@ -31,7 +31,7 @@ export default class GetSnapshotBeforeUpdate extends Component {
   }
   componentDidUpdate(prevProps, prevState, prevScrollHeight) {
     // scrollTop = scrollTop + (现在的内容高度 - 300px)
-    this.wrapper.current.scrollTop = this.wrapper.current.scrollTop + (this.wrapper.current.scrollHeight - prevScrollHeight)
+    this.wrapper.current.scrollTop = this.wrapper.current.scrollTop + (this.wrapper.current.scrollHeight - prevScrollHeight);
   }
   render() {
     let style = {
