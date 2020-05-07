@@ -15,7 +15,7 @@ class Title extends Component {
     setColor: 'function'
   }
   render() {
-    return <div style={{border: '1px solid blue', padding: '15px', color: this.context.color}}>
+    return <div style={{border: '1px solid blue', padding: '15px', color: this.context}}>
       Title
     </div>
   }
