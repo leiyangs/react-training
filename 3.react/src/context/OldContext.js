@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Header extends Component {
   render() {
-    return <div style={{border: '1px solid green', padding: '15px'}}>
+    return <div style={{border: '5px solid green', padding: '15px'}}>
       Header
       <Title></Title>
     </div>
@@ -15,22 +16,27 @@ class Title extends Component {
     setColor: 'function'
   }
   render() {
-    return <div style={{border: '1px solid blue', padding: '15px', color: this.context}}>
+    return <div style={{border: '5px solid blue', padding: '15px', color: this.context}}>
       Title
     </div>
   }
 }
 class Main extends Component {
   render() {
-    return <div style={{border: '1px solid orange', padding: '15px'}}>
+    return <div style={{border: '5px solid orange', padding: '15px'}}>
       Main
       <Content></Content>
     </div>
   }
 }
 class Content extends Component {
+  static contextTypes = {
+    color: PropTypes.string,
+    name: PropTypes.string,
+    age: PropTypes.number
+  }
   render() {
-    return <div style={{border: '1px solid black', padding: '15px'}}>
+    return <div style={{border: '5px solid black', padding: '15px'}}>
       Content
     </div>
   }
@@ -54,7 +60,7 @@ export default class OldContext extends Component {
   }
   render() {
     return (
-      <div style={{border: '1px solid red', padding: '15px'}}>
+      <div style={{border: '5px solid red', padding: '15px'}}>
         <Header>
           <Title></Title>
         </Header>
