@@ -9,13 +9,29 @@ class Header extends Component {
     </div>
   }
 }
-class Title extends Component {
+// 类组件用ThemeContext
+class Title1 extends Component {
   static contextType = ThemeContext;
   render() {
     return <div style={{border: '5px solid blue', padding: '15px', color: this.context.color}}>
       Title
     </div>
   }
+}
+// 函数组件用Consumer
+function Title() {
+  return (
+    <ThemeContext.Consumer>
+      {
+        value => (
+          <div style={{border: '5px solid blue', padding: '15px', color: value.color}}>
+            Title
+          </div>
+        )
+      }
+    </ThemeContext.Consumer>
+    
+  )
 }
 class Main extends Component {
   render() {
