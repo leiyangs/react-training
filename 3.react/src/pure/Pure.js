@@ -23,7 +23,7 @@ export default class App extends PureComponent {
     this.state = { title: '计数器', number: 0 }
     this.inputRef = React.createRef();
   }
-  add = () =>{
+  add = () => {
     this.setState({number: this.state.number+parseInt(this.inputRef.current.value)})
   }
   render() {
