@@ -6,9 +6,10 @@ import GetSnapshotBeforeUpdate from './components/getSnapshotBeforeUpdate';
 // import OldContext from './context/OldContext';
 // import NewContext from './context/NewContext';
 import Pure from './pure/Pure';
+import Logger from './high/Logger'
 
 // let element = React.createElement('span', {id: 'id', className: 'class', style: {color: 'red'}}, 11)
 ReactDOM.render(
-  <Pure/>,
+  <Logger/>,
   document.getElementById('root')
 );
