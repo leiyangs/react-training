@@ -3,17 +3,12 @@
  * 高阶组件就是一个函数，传给它一个组件，它返回一个新的组件
  * 高阶组件的作用就是为了组件之间的代码复用
  */
-import React, { Component } from 'react'
 
-export default class Logger extends Component {
-  componentWillMount() {
-    this.start = Date.now();
-    console.time('cost')
-  }
-  componentDidMount() {
-    console.log((Date.now() - this.start)+'ms')
-    console.timeEnd('cost')
-  }
+//  计算组件加载的时间，任何组件在用的时候直接WithLogger(Comp)就可以了，实现了封装和复用，不会影响其他组件
+import React, { Component } from 'react'
+import WithLogger from './WithLogger' //高阶组件
+
+class Logger extends Component {
   render() {
     return (
       <div>
@@ -22,3 +17,5 @@ export default class Logger extends Component {
     )
   }
 }
+
+export default WithLogger(Logger);
