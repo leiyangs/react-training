@@ -9,10 +9,12 @@ import Pure from './pure/Pure';
 import Logger from './high/Logger';
 import UserNameInput from './high/UserNameInput';
 import EmailInput from './high/EmailInput';
+import UserNameZhInput from './high/UserNameZhInput';
 
 // let element = React.createElement('span', {id: 'id', className: 'class', style: {color: 'red'}}, 11)
 ReactDOM.render(
   <div>
+    <UserNameZhInput/>
     <UserNameInput/>
     <EmailInput/>
   </div>,

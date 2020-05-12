@@ -6,6 +6,7 @@ export default function(Comp, name) {
       this.state = {value: ''}
     }
     componentDidMount() {
+      console.log('local')
       this.setState({
         value: localStorage.getItem(name)
       })
