@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 // import EmailInput from './high/EmailInput';
 // import UserNameZhInput from './high/UserNameZhInput';
 import MouseTracker from './render/MouseTracker'
+import CatPicture from './render/CatPicture'
 
 // let element = React.createElement('span', {id: 'id', className: 'class', style: {color: 'red'}}, 11)
 ReactDOM.render(
@@ -18,7 +19,11 @@ ReactDOM.render(
     {/* <UserNameZhInput/>
     <UserNameInput/>
     <EmailInput/> */}
-    <MouseTracker/>
+    <MouseTracker>
+      {
+        (props) => <CatPicture {...props}/>
+      }
+    </MouseTracker>
   </div>,
   document.getElementById('root')
 );

@@ -13,9 +13,9 @@ export default class MouseTracker extends Component {
   }
   render() {
     return (
-      <div>
-        <p onMouseMove={this.handleMouseMove}>请移动鼠标</p>
-        <p>当前鼠标位置是 x:{this.state.x}y:{this.state.y}</p>
+      <div onMouseMove={this.handleMouseMove}>
+        {/* 这里的state传给了MouseTrack组建的儿子，也就是(props) => <CatPicture {...props}/>中形参props 再由形参传入CatPicture*/}
+        {this.props.children({x:this.state.x, y:this.state.y})}
       </div>
     )
   }
