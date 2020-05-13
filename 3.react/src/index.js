@@ -19,11 +19,12 @@ ReactDOM.render(
     {/* <UserNameZhInput/>
     <UserNameInput/>
     <EmailInput/> */}
-    <MouseTracker>
+    {/* <MouseTracker>
       {
         (props) => <CatPicture {...props}/>
       }
-    </MouseTracker>
+    </MouseTracker> */}
+    <MouseTracker render={(props) => <CatPicture {...props}/>}/>
   </div>,
   document.getElementById('root')
 );
