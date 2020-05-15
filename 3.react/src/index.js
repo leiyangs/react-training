@@ -12,7 +12,8 @@ import ReactDOM from 'react-dom';
 // import UserNameZhInput from './high/UserNameZhInput';
 // import MouseTracker from './render-props/MouseTracker'
 // import CatPicture from './render-props/CatPicture'
-import Fragment from './fragment/Fragment'
+// import Fragment from './fragment/Fragment'
+import Modal from './portal/Portal'
 
 // let element = React.createElement('span', {id: 'id', className: 'class', style: {color: 'red'}}, 11)
 ReactDOM.render(
@@ -26,7 +27,7 @@ ReactDOM.render(
       }
     </MouseTracker> */}
     {/* <MouseTracker render={(props) => <CatPicture {...props}/>}/> */}
-    <Fragment/>
+    <Modal/>
   </div>,
   document.getElementById('root')
 );
