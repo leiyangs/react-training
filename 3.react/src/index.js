@@ -13,7 +13,8 @@ import ReactDOM from 'react-dom';
 // import MouseTracker from './render-props/MouseTracker'
 // import CatPicture from './render-props/CatPicture'
 // import Fragment from './fragment/Fragment'
-import Modal from './portal/Portal'
+// import Modal from './portal/Portal'
+import ErrorBoundary from './error-boundary/ErrorBoundary'
 
 // let element = React.createElement('span', {id: 'id', className: 'class', style: {color: 'red'}}, 11)
 ReactDOM.render(
@@ -27,7 +28,7 @@ ReactDOM.render(
       }
     </MouseTracker> */}
     {/* <MouseTracker render={(props) => <CatPicture {...props}/>}/> */}
-    <Modal/>
+    <ErrorBoundary/>
   </div>,
   document.getElementById('root')
 );
