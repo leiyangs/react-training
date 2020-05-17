@@ -11,3 +11,6 @@ npx create-react-app 1.react
 
 #### 3.react
   React基础用法(生命周期、上下文、高级组件、PureComponent memo、片段、render props)
+
+#### 4.redux
+  Redux用法，实现Redux
