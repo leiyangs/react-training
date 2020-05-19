@@ -6,7 +6,7 @@ import './modal.css'
  * Portals 提供了一种很好的方法，将子节点渲染到父组件 DOM 层次结构之外的 DOM 节点。
  */
 class Modal extends Component {
-  constructor() { 
+  constructor() {
     super();
   }
   render() {
