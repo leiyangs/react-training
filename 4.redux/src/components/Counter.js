@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createStore } from 'redux'
+import { createStore, bindActionCreators } from 'redux'
 
 let initState = 0;
 let INCREMENT = 'INCREMENT';
@@ -14,8 +14,21 @@ function reducer(state, action) {
       return state;
   }
 }
+let actions = {
+  increment() {
+    return {type: INCREMENT}
+  },
+  DECREMENT() {
+    return {type: DECREMENT}
+  }
+}
+
 let store = createStore(reducer, initState);
 let state = store.getState();
+// function bindActionCreators(actionCreators, dispatch) {
+//   dispatch(actionCreators)
+// }
+let boundActions = bindActionCreators(actions, store.dispatch);
 export default class Counter extends Component {
   state = { number: state };
   componentDidMount() {
