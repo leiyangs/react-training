@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { createStore, bindActionCreators } from 'redux'
+import { createStore } from 'redux' // , bindActionCreators
+import { bindActionCreators } from '../redux' // 实现bindActionCreators
 
 let initState = 0;
 let INCREMENT = 'INCREMENT';
@@ -18,17 +19,15 @@ let actions = {
   increment() {
     return {type: INCREMENT}
   },
-  DECREMENT() {
+  decrement() {
     return {type: DECREMENT}
   }
 }
 
 let store = createStore(reducer, initState);
 let state = store.getState();
-// function bindActionCreators(actionCreators, dispatch) {
-//   dispatch(actionCreators)
-// }
-let boundActions = bindActionCreators(actions, store.dispatch);
+
+const boundActions = bindActionCreators(actions,store.dispatch);  // 官方的可以传入一个actions对象，也可以传入函数
 export default class Counter extends Component {
   state = { number: state };
   componentDidMount() {
@@ -43,8 +42,8 @@ export default class Counter extends Component {
     return (
       <div>
         <p>{this.state.number}</p>
-        <button onClick={()=>store.dispatch({type: INCREMENT})}>+</button>
-        <button onClick={()=>store.dispatch({type: DECREMENT})}>-</button>
+        <button onClick={boundActions.increment}>+</button>
+        <button onClick={boundActions.decrement}>-</button>
       </div>
     )
   }
