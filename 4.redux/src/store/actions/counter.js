@@ -1,4 +1,4 @@
-import * as types from './action-types'
+import * as types from '../action-types'
 let actions = {
   increment() {
     return {type: types.INCREMENT}

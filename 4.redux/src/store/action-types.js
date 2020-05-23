@@ -1,2 +1,8 @@
 export let INCREMENT = 'INCREMENT';
 export let DECREMENT = 'DECREMENT';
+
+export let INCREMENT1 = 'INCREMENT1';
+export let DECREMENT1 = 'DECREMENT1';
+
+export let INCREMENT2 = 'INCREMENT2';
+export let DECREMENT2 = 'DECREMENT2';
