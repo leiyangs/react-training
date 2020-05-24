@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createStore } from 'redux' // , bindActionCreators
+// import { createStore } from 'redux' // , bindActionCreators
 import { bindActionCreators } from '../redux' // 实现bindActionCreators
 import store from '../store'
 import actions from '../store/actions/counter2'
