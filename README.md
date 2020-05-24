@@ -14,4 +14,4 @@ npx create-react-app 1.react
 
 #### 4.redux
   Redux用法，实现Redux  react-redux(连接库) 
-  counter1中使用了react-redux
+  counter中使用了react-redux
