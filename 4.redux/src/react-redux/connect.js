@@ -11,16 +11,19 @@ export default function(mapStateToProps, mapDispatchToProps) {
         this.state = mapStateToProps(context.store.getState());
       }
       componentDidMount() {
-        this.unsubscribe = this.context.store.subscribe(() => {
+        this.unsubscribe = this.context.store.subscribe(() =>
           this.setState(mapStateToProps(this.context.store.getState()))
-        })
+        );
       }
       componentWillUnmount() {
         this.unsubscribe();
       }
       render() {
-        let actions = bindActionCreators(mapDispatchToProps, this.context.store.dispatch);
-        return <WrappedComponent {...this.state} {...actions}/>
+        let actions = bindActionCreators(
+          mapDispatchToProps,
+          this.context.store.dispatch
+        );
+        return <WrappedComponent {...this.state} {...actions} />;
       }
     }
   }
