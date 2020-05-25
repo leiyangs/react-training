@@ -32,7 +32,6 @@ class Counter extends Component {
     )
   }
 }
-
 const mapStateToProps = state=>({number:state.counter*10}); // 就是this.props的返回值  必须返回的是一个对象
 // connect用来连接仓库和组件
 export default connect(

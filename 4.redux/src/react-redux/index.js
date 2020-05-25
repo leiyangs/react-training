@@ -1,7 +1,7 @@
 import Provider from './Provider'
 import connect from './connect'
 
-export default {
+export {
   Provider,
   connect
 }
