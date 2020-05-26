@@ -15,4 +15,5 @@ npx create-react-app 1.react
 #### 4.redux
   Redux用法，实现Redux(createStore/bindActionCreators/combineReducers/middleware/compose)
   react-redux(连接库)  counter中使用了react-redux
-  Redux的中间件 store => index.js
+  Redux的中间件/级联中间件 store => index.js
+  Redux-thunk中间件 在store中applyMiddleware传入thunk
