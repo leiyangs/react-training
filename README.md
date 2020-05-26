@@ -13,5 +13,6 @@ npx create-react-app 1.react
   React基础用法(生命周期、上下文、高级组件、PureComponent memo、片段、render props)
 
 #### 4.redux
-  Redux用法，实现Redux  react-redux(连接库) 
-  counter中使用了react-redux
+  Redux用法，实现Redux(createStore/bindActionCreators/combineReducers/middleware)
+  react-redux(连接库)  counter中使用了react-redux
+  Redux的中间件 store => index.js
