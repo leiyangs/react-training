@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>history</title>
+</head>
+<body>
+  <!-- 路由原理 路径不同显示内容不同 -->
+  <button onclick="push('/a')">点击a</button>
+  <button onclick="push('/b')">点击b</button>
+  <button onclick="push('/c')">点击c</button>
+  <div id="root" style="height: 300px;border: 2px solid red;"></div>
+  <script>
+    const root = document.querySelector('#root');
+    // 原生监听路径出栈的方法
+    window.onpopstate = e =>{
+      console.log(e.state)
+      root.innerHTML = e.state.to;
+    }
+    // 自己封装路径入栈的方法(无原生方法)
+    window.onpushstate = function(data, title, url) {
+      root.innerHTML = data.to;
+    }
+    let odlPsuhState = window.history.pushState
+    window.history.pushState = function(data, title, url) {
+      window.onpushstate(data, title, url);
+      odlPsuhState.call(window.history, data, title, url); // 需要绑定this
+    }
+    function push(to) {
+      window.history.pushState({to}, null, to);
+    }
+  </script>
+</body>
+</html>
