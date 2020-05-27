@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, thunk } from '../redux' // , bindActionCreators applayMiddleware
+import { createStore, applyMiddleware, thunk, reduxPromise } from '../redux' // , bindActionCreators applayMiddleware
 // import thunk from 'redux-thunk' // 原生包
 import reducers from './reducers'
 import logger from './redux-logger'
@@ -9,7 +9,7 @@ import logger1 from './redux-logger1'
 // redux中间件使用方法
 // thunk传递其他参数
 let $thunk = thunk.withExtraArgument(5);
-let store = applyMiddleware($thunk,logger,logger1)(createStore)(reducers,{counter1: 1, counter2: 0});
+let store = applyMiddleware($thunk,reduxPromise,logger,logger1)(createStore)(reducers,{counter1: 1, counter2: 0});
 export default store;
 
 // let dispatch = store.dispatch; // 老的dispatch方法

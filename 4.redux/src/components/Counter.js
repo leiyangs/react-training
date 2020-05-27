@@ -27,6 +27,7 @@ class Counter extends Component {
         {/* boundActions.increment boundActions.decrement */}
         <button onClick={this.props.increment}>+</button>
         <button onClick={this.props.asyncincrement}>延时+</button>
+        <button onClick={this.props.promiseincrement}>Promise+</button>
         <button onClick={this.props.decrement}>-</button>
       </div>
     )
