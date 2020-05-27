@@ -7,9 +7,9 @@ let actions = {
     return {type: types.DECREMENT}
   },
   asyncincrement() {
-    return function(dispatch, getState) {
+    return function(dispatch, getState, amount) {
       setTimeout(() => {
-        dispatch({type: types.INCREMENT});
+        dispatch({type: types.INCREMENT, payload: amount});
       }, 1000);
     }
   }

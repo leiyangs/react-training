@@ -22,4 +22,4 @@ function add3(str) {
 }
 
 let result = compose(add1,add2,add3)('yang');
-console.log(result)
+// console.log(result)
