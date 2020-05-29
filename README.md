@@ -19,3 +19,4 @@ npx create-react-app 1.react
   Redux-thunk中间件 在store中applyMiddleware传入thunk
 
 #### 5.react-router
+  react-router-dom   path-to-regexp
