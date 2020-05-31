@@ -18,11 +18,11 @@ export default class User extends Component {
           </ul>
         </div>
         <div className="col-md-10">
-          {/* <Switch> */}
+          <Switch>
             <Route path="/user/list" component={UserList}></Route>
             <Route path="/user/add" component={UserAdd}></Route>
             <Redirect to="/user/list"></Redirect>
-          {/* </Switch> */}
+          </Switch>
         </div>
       </div>
     )
