@@ -9,7 +9,8 @@ export default class Route extends Component {
     let { path='/', component: Component, exact=false } = this.props; //<Route path="/" component={Home} exact></Route>解构组件中传入的参数
     // 传给组件的props(location, history, match)
     let props = {
-      location: this.context.location
+      location: this.context.location,
+      history: this.context.history
     }
     // 通过正则匹配url
     let paramNames = [];
