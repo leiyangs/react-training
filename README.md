@@ -25,5 +25,5 @@ npx create-react-app 1.react
 
 ## 5.react-router
 
-  react-router-dom  path-to-regexp
+  react-router-dom  path-to-regexp HashRouter Route Link Redirect Switch
   
