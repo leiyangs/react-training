@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Redirect } from '../react-router-dom'
 // rest = {path:profile,exact:true}
 export default function Protected({component: Component, ...rest}) {
   return (

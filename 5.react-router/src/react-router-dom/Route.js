@@ -6,7 +6,7 @@ export default class Route extends Component {
   static contextType = Context;
   render() {
     let { pathname } = this.context.location;
-    let { path='/', component: Component, exact=false } = this.props; //<Route path="/" component={Home} exact></Route>解构组件中传入的参数
+    let { path='/', component: Component, exact=false, render } = this.props; //<Route path="/" component={Home} exact></Route>解构组件中传入的参数
     // 传给组件的props(location, history, match)
     let props = {
       location: this.context.location,
@@ -30,7 +30,13 @@ export default class Route extends Component {
         path,
         url,
       }
-      return <Component {...props}/>
+      if(Component) { // 如果传入是组件，直接渲染
+        return <Component {...props}/>
+      }else if(render) { // 如果传了render(受保护的路由)
+        return render(props);
+      }else {
+        return null;
+      }
     }
     return null;
   }
