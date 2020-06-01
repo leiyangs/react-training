@@ -10,13 +10,26 @@ export default class Route extends Component {
     // 传给组件的props(location, history, match)
     let props = {
       location: this.context.location,
-      history: this.context.history
+      history: this.context.history,
     }
     // 通过正则匹配url
     let paramNames = [];
     let reg = pathToRegexp(path, paramNames, {end:exact});
     let result = pathname.match(reg);
     if(result) {
+      // console.log(paramNames) [{modifier: "",name: "id",pattern: "[^\/#\?]+?",prefix: "/",suffix: ""}]
+      paramNames = paramNames.map(item=>item.name); // ['id']
+      let [url, ...values] = result;
+      let params = {}
+      for (let i = 0; i < paramNames.length; i++) {
+        params[paramNames[i]] = values[i];
+      }
+      props.match = {
+        isExact: url===path,
+        params,
+        path,
+        url,
+      }
       return <Component {...props}/>
     }
     return null;

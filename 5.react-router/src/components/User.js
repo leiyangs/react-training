@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, Route, Redirect, Switch } from '../react-router-dom'
 import UserList from './UserList'
 import UserAdd from './UserAdd'
+import UserDetail from './UserDetail'
 
 export default class User extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class User extends Component {
           <Switch>
             <Route path="/user/list" component={UserList}></Route>
             <Route path="/user/add" component={UserAdd}></Route>
+            <Route path="/user/detail/:id" component={UserDetail}></Route>
             <Redirect to="/user/list"></Redirect>
           </Switch>
         </div>

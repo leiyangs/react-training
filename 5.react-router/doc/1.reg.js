@@ -13,9 +13,9 @@ const { pathToRegexp } = require('path-to-regexp');
   }
  */
 /^\/home[\/#\?]?$/i
-var re = pathToRegexp('/home'); // /^\/home[\/#\?]?$/i
+var re = pathToRegexp('/home/id=12321'); // /^\/home[\/#\?]?$/i
 console.log(re);
 let reg = /^\/home[\/#\?]?$/i;
-let url = '/home';
+let url = '/home/id=12321';
 let result = url.match(re);
 console.log(result)
