@@ -6,7 +6,7 @@ export default class Route extends Component {
   static contextType = Context;
   render() {
     let { pathname } = this.context.location;
-    let { path='/', component: Component, exact=false, render } = this.props; //<Route path="/" component={Home} exact></Route>解构组件中传入的参数
+    let { path='/', component: Component, exact=false, render, children } = this.props; //<Route path="/" component={Home} exact></Route>解构组件中传入的参数
     // 传给组件的props(location, history, match)
     let props = {
       location: this.context.location,
@@ -34,10 +34,17 @@ export default class Route extends Component {
         return <Component {...props}/>
       }else if(render) { // 如果传了render(受保护的路由)
         return render(props);
+      }else if(children) { // 如果有children(自定义导航)
+        return children(props);
+      }else {
+        return null;
+      }
+    }else { // 如果没匹配到有children也会渲染
+      if(children) { // 如果有children(自定义导航)
+        return children(props);
       }else {
         return null;
       }
     }
-    return null;
   }
 }

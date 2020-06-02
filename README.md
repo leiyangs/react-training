@@ -25,5 +25,5 @@ npx create-react-app 1.react
 
 ## 5.react-router
 
-  react-router-dom(路由原理)  path-to-regexp HashRouter Route Link Redirect Switch 路径参数 受保护的路由
+  react-router-dom(路由原理)  path-to-regexp HashRouter Route Link Redirect Switch 路径参数 受保护的路由 自定义导航
   

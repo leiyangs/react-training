@@ -6,6 +6,7 @@ import User from './components/User'
 import Profile from './components/Profile'
 import Protected from './components/Protected'
 import Login from './components/Login'
+import MenuLink from './components/MenuLink'
 import 'bootstrap/dist/css/bootstrap.css'
 
 // Link中to有两种写法 字符串和对象 
@@ -19,16 +20,20 @@ ReactDOM.render(
         </div>
         <ul className="nav navbar-nav">
           <li>
-            <Link to="/"> 首页 </Link> {/* <a href="#/">首页</a> */}
+            <MenuLink to="/" exact> 首页 </MenuLink>
+            {/* <Link to="/"> 首页 </Link> <a href="#/">首页</a> */}
           </li>
           <li>
-            <Link to={{pathname: '/user', state: {title: '用户管理'}}}> 用户管理 </Link>
+            <MenuLink to="/user"> 用户管理 </MenuLink>
+            {/* <Link to={{pathname: '/user', state: {title: '用户管理'}}}> 用户管理 </Link> */}
           </li>
           <li>
-            <Link to="/profile"> 个人中心 </Link>
+            <MenuLink to="/profile"> 个人中心 </MenuLink>
+            {/* <Link to="/profile"> 个人中心 </Link> */}
           </li>
           <li>
-            <Link to="/login"> 登录 </Link>
+            <MenuLink to="/login"> 登录 </MenuLink>
+            {/* <Link to="/login"> 登录 </Link> */}
           </li>
           <li> 
             <a onClick={()=>localStorage.removeItem('islogin')}>退出</a>

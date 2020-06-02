@@ -5,7 +5,7 @@ export default class Link extends Component {
   static contextType = context
   render() {
     return (
-      <a onClick={()=> this.context.history.push(this.props.to)}>{this.props.children}</a>
+      <a onClick={()=> this.context.history.push(this.props.to)} {...this.props}>{this.props.children}</a>
     )
   }
 }
