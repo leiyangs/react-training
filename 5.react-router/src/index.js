@@ -7,6 +7,7 @@ import Profile from './components/Profile'
 import Protected from './components/Protected'
 import Login from './components/Login'
 import MenuLink from './components/MenuLink'
+import NavHeader from './components/NavHeader'
 import 'bootstrap/dist/css/bootstrap.css'
 
 // Link中to有两种写法 字符串和对象 
@@ -15,9 +16,11 @@ ReactDOM.render(
     <>
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
-        <div className="navbar-heading">
+        {/* 用WithRouter把head做成一个组件 */}
+        {/* <div className="navbar-heading">
           <a className="navbar-brand">ERP管理系统</a>
-        </div>
+        </div> */}
+        <NavHeader/>
         <ul className="nav navbar-nav">
           <li>
             <MenuLink to="/" exact> 首页 </MenuLink>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import context from './context'
 
 export default class Redirect extends Component {
