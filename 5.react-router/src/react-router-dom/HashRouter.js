@@ -28,6 +28,12 @@ export default class HashRouter extends Component {
       location: that.state.location,
       history: {
         push(to) { // 有一个push方法来跳转路径
+          if(that.message) {
+            let confirm = window.confirm(that.message(typeof to==='object'? to:{ pathname: to }));
+            if(!confirm) {
+              return 
+            }
+          }
           if(typeof to === 'object') {
             let { pathname, state } = to;
             window.location.hash = pathname;
@@ -36,6 +42,9 @@ export default class HashRouter extends Component {
             window.location.hash = to;
             that.locationState = null;
           }
+        },
+        block(message) {
+          that.message = message;
         }
       }
     }
