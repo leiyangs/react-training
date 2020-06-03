@@ -26,4 +26,6 @@ npx create-react-app 1.react
 ## 5.react-router
 
   react-router-dom(路由原理)  path-to-regexp HashRouter Route Link Redirect Switch 路径参数 受保护的路由(Protected) 自定义导航(Route => children) WithRouter(普通组件被Route包裹) 阻止跳转(Prompt 表单跳转其他页面时confirm) BrowserRouter
+
+## 6.connected-react-router
   
