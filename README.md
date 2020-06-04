@@ -29,3 +29,5 @@ npx create-react-app 1.react
 
 ## 6.connected-react-router
   
+  连接router和redux(github的useage)
+  
