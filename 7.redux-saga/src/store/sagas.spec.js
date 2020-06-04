@@ -26,5 +26,10 @@ test('incrementAsync saga test', function(assert) {
     cps(readfile, 'README.md'),
     "should return README.md"
   )
+  assert.deepEqual(
+    gen.next(),
+    {value: undefined, done: true},
+    'should done'
+  )
   assert.end();
 })
