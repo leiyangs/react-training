@@ -8,17 +8,17 @@ function* helloSaga() {
   console.log('hello2')
 }
 // 模拟node的readfile
-function readfile(filename,callback) {
+export function readfile(filename,callback) {
   setTimeout(() => {
     callback(null,filename); // cps(err, res) 所以第一个值放null
   },1000)
 }
 // cps 用来调用node类型的方法 也就是回调 call和apply只能调用promise 不支持回调
-function* readAsync() {
+export function* readAsync() {
   let content = yield cps(readfile, 'README.md');
   console.log(content)
 }
-function* incrementAsync() {
+export function* incrementAsync() {
   // 会返回一个Promise 执行完把resolve的值返回
   // let obj = {name: 'yang'}
   let msg = yield delay(1000);
