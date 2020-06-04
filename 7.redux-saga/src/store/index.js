@@ -1,13 +1,12 @@
 import {createStore, applyMiddleware} from 'redux'
-import reducer from './reducer'
+import reducers from './reducers'
 import createSagaMiddleware from 'redux-saga'
-import helloSaga from './helloSaga'
+import saga from './saga'
 
  // createSagaMiddleware是一个函数需要执行
 let sagaMiddleware = createSagaMiddleware();
-console.log(sagaMiddleware)
-// let store = createStore(reducer);
-let store = applyMiddleware(sagaMiddleware)(createStore)(reducer);
+// let store = createStore(reducers);
+let store = applyMiddleware(sagaMiddleware)(createStore)(reducers);
 // sagaMiddleware就是一个执行器，可以启动hellowSaga的generator执行
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(saga);
 export default store;
