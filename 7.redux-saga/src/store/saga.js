@@ -10,8 +10,8 @@ export function* helloSaga() {
 
 export function* incrementAsync() {
   // 会返回一个Promise 执行完把resolve的值返回
-  yield delay(1000);
-  console.log(delay(1000))
+  let msg = yield delay(1000);
+  console.log(msg)
   // 再次向仓库派发INCREMENT动作
   yield put({type: types.INCREMENT})
 }
