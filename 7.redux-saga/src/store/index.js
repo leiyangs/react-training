@@ -1,7 +1,8 @@
 import {createStore, applyMiddleware} from 'redux'
 import reducers from './reducers'
 import createSagaMiddleware from 'redux-saga'
-import saga from './saga'
+// import saga from './saga/saga'
+import saga from './saga/'
 
  // createSagaMiddleware是一个函数需要执行
 let sagaMiddleware = createSagaMiddleware();

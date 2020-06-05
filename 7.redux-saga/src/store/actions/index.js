@@ -1,5 +1,7 @@
 import counter from './counter'
+import login from './login'
 let actions = {
-  ...counter
+  ...counter,
+  ...login
 }
 export default actions;

@@ -40,10 +40,13 @@ npx create-react-app 1.react
 
   但是在实际的应用开发中，我们希望做一些异步的（如Ajax请求）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。
 
-  1、redux-saga用法
+  1、redux-saga用法 (all, takeEvery, delay, put, call,apply, cps)
   2、单元测试
 
   ```node
   cnpm i @babel/core @babel/node @babel/plugin-transform-modules-commonjs --save-dev
   ```
-  
+
+  3、错误处理
+
+  4、登录流程
