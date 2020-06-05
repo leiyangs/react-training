@@ -10,4 +10,5 @@ let sagaMiddleware = createSagaMiddleware();
 let store = applyMiddleware(sagaMiddleware)(createStore)(reducers);
 // sagaMiddleware就是一个执行器，可以启动hellowSaga的generator执行
 sagaMiddleware.run(saga);
+window.store = store;
 export default store;

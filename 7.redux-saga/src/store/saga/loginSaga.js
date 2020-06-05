@@ -6,6 +6,7 @@ function* login(username, password) {
     const token = yield call(Api.login, username, password);
     // 用payload接收token   然后reducer的login中解构action.payload
     yield put({type: types.LOGIN_SUCCESS, payload: {token, username, password}});
+    // return token;
   } catch(error) {
     alert(error);
     yield put({type: types.LOGIN_ERROR, error});
