@@ -4,7 +4,7 @@ const _delay = ms => new Promise((resolve, reject) => {
     resolve(ms)
   },ms)
 })
-// race 只获取第一个执行完的，后面执行的不管
+// race 只获取第一个执行完的，后面执行的不管,会自动取消失败的effect
 // all 等所有执行完
 export default function* () {
   const { a, b } = yield race({
