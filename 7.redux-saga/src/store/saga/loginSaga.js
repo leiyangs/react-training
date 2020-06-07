@@ -1,5 +1,5 @@
 import * as types from '../action-types'
-import { take, call, put, fork } from 'redux-saga/effects'
+import { take, call, put, fork, cancel } from 'redux-saga/effects'
 import Api from './Api'
 function* login(username, password) {
   try {
@@ -10,6 +10,8 @@ function* login(username, password) {
   } catch(error) {
     alert(error);
     yield put({type: types.LOGIN_ERROR, error});
+  }finally{ // saga提供的方法，不管成功失败都会进入
+    console.log('进入了')
   }
 }
 export default function* () {
@@ -22,7 +24,11 @@ export default function* () {
     // if(token) {
       // yield put({type: types.LOGIN_SUCCESS, payload: {token, username, password}}); // 用payload接收token   然后reducer login中同样用action.payload接收
       // 登录成功可以监听退出动作
-      yield take(types.LOGOUT);
+    const action = yield take(types.LOGOUT);
+    // 取消任务
+    if(action.type == types.LOGOUT){
+      yield cancel(task)
+    }
       yield put({type: types.LOGOUT_SUCCESS})
     // }
   }
