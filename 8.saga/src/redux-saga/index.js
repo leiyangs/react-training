@@ -10,21 +10,27 @@ export default function createSagaMiddleware() {
   // 简写
   let sagaMiddlewate = ({dispatch, getState}) => {
     let run = generator => {
-      let it = generator();
+      let it = typeof generator[Symbol.iterator] === 'function'?generator:generator();
       let next = action => {
         // value={type:'TAKE',actionType: ASYNC_INCREMENT}
         let {value:effect,done} = it.next(action); // 这里的next是generator函数的(各个saga generator函数中的)
         if(!done) {
-          switch(effect.type) {
-            case 'TAKE': // 监听某个动作，当动作发生时候执行下一步
-              channel.subscribe(effect.actionType, next);
-              break;
-            case 'PUT':
-              dispatch(effect.action);
-              next();
-              break;
-            default:
-              break;
+          // 判断effect是不是一个generator函数
+          if(typeof effect[Symbol.iterator] == 'function') {
+            run(effect); // effect是迭代器直接传入run方法
+            next();
+          }else {
+            switch(effect.type) {
+              case 'TAKE': // 监听某个动作，当动作发生时候执行下一步
+                channel.subscribe(effect.actionType, next);
+                break;
+              case 'PUT':
+                dispatch(effect.action);
+                next();
+                break;
+              default:
+                break;
+            }
           }
         }
       }
