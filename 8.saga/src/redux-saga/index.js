@@ -19,6 +19,8 @@ export default function createSagaMiddleware() {
           if(typeof effect[Symbol.iterator] == 'function') {
             run(effect); // effect是迭代器直接传入run方法
             next();
+          }else if(typeof effect.then === 'function'){
+            effect.then(next)
           }else {
             switch(effect.type) {
               case 'TAKE': // 监听某个动作，当动作发生时候执行下一步
@@ -27,6 +29,16 @@ export default function createSagaMiddleware() {
               case 'PUT':
                 dispatch(effect.action);
                 next();
+                break;
+              case 'FORK':
+                run(effect.task);
+                next();
+                break;
+              case 'CALL': 
+                effect.fn(...effect.args).then(next);
+                break;
+              case 'CPS': 
+                effect.fn(...effect.args, next);
                 break;
               default:
                 break;
