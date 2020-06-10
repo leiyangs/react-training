@@ -40,6 +40,21 @@ export default function createSagaMiddleware() {
               case 'CPS': 
                 effect.fn(...effect.args, next);
                 break;
+              case 'ALL':
+                // 执行到最后才调用callback
+                function times(cb,length) {
+                  let count = 0;
+                  return function() {
+                    if(++count === length) {
+                      cb();
+                    }
+                  }
+                }
+                let fns = effect.fns;
+                let done = times(next,fns.length);
+                fns.forEach(fn => run(fn,done));
+                effect.fns.forEach(fn=>run(fn));
+                break;
               default:
                 break;
             }
