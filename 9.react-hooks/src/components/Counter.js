@@ -39,6 +39,7 @@ export function Counter1() {
 }
 
 // 把组件传入memo后，新组件就有一个功能，如果属性不变就不重新渲染
+// usememo使用备忘录
 function SubCounter({onClick,data}) {
   console.log('subcounter')
   return(
