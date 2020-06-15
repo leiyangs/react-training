@@ -1,5 +1,5 @@
 // 类组件
-import React, { Component, useState, memo } from 'react'
+import React, { Component, useState, memo,useMemo,useCallback } from 'react'
 
 export class Counter extends Component {
   state={number:0}
@@ -39,7 +39,7 @@ export function Counter1() {
 }
 
 // 把组件传入memo后，新组件就有一个功能，如果属性不变就不重新渲染
-// usememo使用备忘录
+// usememo使用备忘录 优化备忘录不变组件不更新
 function SubCounter({onClick,data}) {
   console.log('subcounter')
   return(
@@ -50,10 +50,11 @@ SubCounter = memo(SubCounter);
 export function Counter2() {
   const [name, setName] = useState('计数器');
   const [number, setNumber] = useState(0);
-  const data = {number};
-  const addClick = () => {
+  const data = useMemo(()=>({number}),[number]);
+  console.log(data)
+  const addClick = useCallback(() => {
     setNumber(number=>number+1);
-  }
+  },[number])
   console.log('conunter2')
   return(
     <div>
