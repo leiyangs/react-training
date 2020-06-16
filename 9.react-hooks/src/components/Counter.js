@@ -38,7 +38,7 @@ export function Counter1() {
   )
 }
 
-// 把组件传入memo后，新组件就有一个功能，如果属性不变就不重新渲染
+
 // usememo使用备忘录 优化备忘录不变组件不更新
 function SubCounter({onClick,data}) {
   console.log('subcounter')
@@ -46,6 +46,7 @@ function SubCounter({onClick,data}) {
   <button onClick={onClick}>{data.number}</button>
   )
 }
+// 把组件传入memo后，新组件就有一个功能，如果属性不变就不重新渲染
 SubCounter = memo(SubCounter);
 export function Counter2() {
   const [name, setName] = useState('计数器');
