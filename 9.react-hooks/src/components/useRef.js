@@ -32,6 +32,9 @@ function Child(props, ref) {
     return {
       focus() {
         childRef.current.focus();
+      },
+      change(text) {
+        childRef.current.value = text;
       }
     }
   });
@@ -50,6 +53,7 @@ export function Parent () {
   function getFocus() {
     console.log(inputRef)
     inputRef.current.focus();
+    inputRef.current.change('focus');
   }
   return (
     <>
