@@ -58,7 +58,8 @@ npx create-react-app 1.react
 ## 9.react-hooks
   
   Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性
-  1. useState, memo,useMemo,useCallback
-  2. reducer useContext
-  3. effect 
-  4. createRef useRef forwardRef
+  1. useState, memo,useMemo,useCallback (Counter.js)
+  2. reducer useContext  (Counter1.js)
+  3. effect   (Counter2.js)
+  4. createRef useRef forwardRef  (Counter3.js)
+  5. 自定义hook 状态的复用  (Counter4.js)
