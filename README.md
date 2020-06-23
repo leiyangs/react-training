@@ -30,6 +30,7 @@ npx create-react-app 1.react
 ## 6.connected-react-router
   
   连接router和redux(github的useage)
+  redux-persist(redux持久化  手写persist)
 
 ## 7.redux-saga
   
@@ -63,3 +64,5 @@ npx create-react-app 1.react
   3. effect   (Counter2.js)
   4. createRef useRef forwardRef UseLayoutEffectComponent (UseRef.js UseLayoutEffectComponent.js)
   5. 自定义hook 状态的复用  (Counter3.js)
+
+
