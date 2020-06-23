@@ -15,10 +15,8 @@ export default function persistReducer(persistConfig, reducers) {
         if(isInited) {
           state = reducers(state, action);
           persistConfig.storage.set(key, JSON.stringify(state));
-          return state;
         }else {
-          console.log(state)
-          return reducers(state, action);
+          return reducers(state, action)
         }
     }
   }
